@@ -1,0 +1,13 @@
+services:
+  nextjs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nextjs
+    ports:
+      - '3000:3000'
+    environment:
+      - AUTH_TRUST_HOST=true
+    env_file:
+      - .env.local
+    restart: unless-stopped
