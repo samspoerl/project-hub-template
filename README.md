@@ -1,6 +1,6 @@
 # Project Hub
 
-A modern project dashboard built with [Next.js](https://nextjs.org) to help you track, organize, and/or showcase your projects. Easily run locally, with Docker, or deploy to Vercel.
+A modern project dashboard built with [Next.js](https://nextjs.org) to help you track, organize, and/or showcase your projects. Use as a standalone app or as a page or component in an existing project. Easily run locally, with Docker, or deploy to Vercel.
 
 ## 🚀 Features
 
@@ -86,8 +86,8 @@ Contributions are welcome! Please open an issue to discuss major changes before 
 
 ## 📝 License
 
-[MIT License](LICENSE)
+Licensed under the [MIT License](/LICENSE.md).
 
 ## 📣 Author
 
-Maintained by [Sam Spoerl](https://samspoerl.com). If you use this project, let me know—I'd love to see what you build!
+Built and maintained by [Sam Spoerl](https://samspoerl.com). If you use this project, let me know—I'd love to see what you build!
