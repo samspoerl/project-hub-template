@@ -10,6 +10,10 @@ interface VercelButtonProps {
 }
 
 export function VercelButton({ projectName }: VercelButtonProps) {
+  if (!projectName) {
+    return null
+  }
+
   return (
     <Tooltip>
       <TooltipTrigger asChild>

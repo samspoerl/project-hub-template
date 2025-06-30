@@ -16,10 +16,10 @@ export function LogoutButton() {
           variant="ghost"
           onClick={async () => {
             'use server'
-            if (process.env.USE_AUTH === 'false') {
-              redirect('/login')
-            } else {
+            if (process.env.USE_AUTH === 'true') {
               await signOut({ redirectTo: '/login' })
+            } else {
+              redirect('/login')
             }
           }}
         >

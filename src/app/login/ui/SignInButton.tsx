@@ -18,10 +18,10 @@ export function SignInButton({
     <form
       action={async () => {
         'use server'
-        if (process.env.USE_AUTH === 'false') {
-          redirect('/')
-        } else {
+        if (process.env.USE_AUTH === 'true') {
           await signIn(provider, { redirectTo: '/' })
+        } else {
+          redirect('/')
         }
       }}
     >
