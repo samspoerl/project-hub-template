@@ -6,6 +6,7 @@ import {
 } from '@/components/ui/tooltip'
 import { signOut } from '@/lib/auth'
 import { LogOutIcon } from 'lucide-react'
+import { redirect } from 'next/navigation'
 
 export function LogoutButton() {
   return (
@@ -15,7 +16,11 @@ export function LogoutButton() {
           variant="ghost"
           onClick={async () => {
             'use server'
-            await signOut({ redirectTo: '/login' })
+            if (process.env.USE_AUTH === 'true') {
+              await signOut({ redirectTo: '/login' })
+            } else {
+              redirect('/login')
+            }
           }}
         >
           <LogOutIcon className="size-4" />

@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { signIn } from '@/lib/auth'
+import { redirect } from 'next/navigation'
 import { IconType } from 'react-icons'
 
 export interface SignInButtonProps {
@@ -17,7 +18,11 @@ export function SignInButton({
     <form
       action={async () => {
         'use server'
-        await signIn(provider, { redirectTo: '/' })
+        if (process.env.USE_AUTH === 'true') {
+          await signIn(provider, { redirectTo: '/' })
+        } else {
+          redirect('/')
+        }
       }}
     >
       <Button type="submit" variant="outline" className="items-center">

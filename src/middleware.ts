@@ -2,15 +2,17 @@ import { NextRequest, NextResponse } from 'next/server'
 import { auth } from './lib/auth'
 
 export default async function middleware(req: NextRequest) {
-  const path = req.nextUrl.pathname
-  const session = await auth()
-  const user = session?.user
+  if (process.env.USE_AUTH === 'true') {
+    const path = req.nextUrl.pathname
+    const session = await auth()
+    const user = session?.user
 
-  // Redirect to or away from /login depending on auth status.
-  if (path !== '/login' && !user) {
-    return NextResponse.redirect(new URL('/login', req.nextUrl))
-  } else if (path === '/login' && user) {
-    return NextResponse.redirect(new URL('/', req.nextUrl))
+    // Redirect to or away from /login depending on auth status.
+    if (path !== '/login' && !user) {
+      return NextResponse.redirect(new URL('/login', req.nextUrl))
+    } else if (path === '/login' && user) {
+      return NextResponse.redirect(new URL('/', req.nextUrl))
+    }
   }
 
   return NextResponse.next()

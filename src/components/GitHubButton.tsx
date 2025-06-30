@@ -11,6 +11,10 @@ interface GitHubButtonProps {
 }
 
 export function GitHubButton({ repoName }: GitHubButtonProps) {
+  if (!repoName) {
+    return null
+  }
+
   return (
     <Tooltip>
       <TooltipTrigger asChild>
